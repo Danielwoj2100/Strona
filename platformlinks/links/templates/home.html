@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+<section class="hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 offset-md-1 col-md-11">
+                <div class="swiper-container hero-slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide slide-content d-flex align-items-center">
+                             <div class="single-slide">
+                                <h1 data-aos="fade-center" data-aos-delay="300">kurs dnia
+                                </h1>
+                                <p data-aos="fade-right" data-aos-delay="600">programowanie 1
+                                </p>
+                                <a data-aos="fade-right" data-aos-delay="900" href="#" class="btn btn-primary">zobacz</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add Control -->
+        <span class="arr-left"><i class="fa fa-angle-left"></i></span>
+        <span class="arr-right"><i class="fa fa-angle-right"></i></span>
+    </div>
+    <div class="texture"></div>
+    <div class="diag-bg"></div>
+</section>
+{% endblock %}

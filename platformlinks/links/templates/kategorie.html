@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+<div role="main">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    {% for row in kategorie %}
+
+    <div class="row borders">
+        <div class="col-md-5"></div>
+
+        <div class="col-md-2">
+            <a class="lista" href="/kursy/{{ row}}">{{ row}}</a>
+        </div>
+
+    </div>
+
+    {% endfor %}
+    
+
+</div>
+{% endblock %}
+
+
