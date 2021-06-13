@@ -6,28 +6,7 @@ from django.contrib.auth.models import User, Group
 from django.db import connections 
 from django.db import transaction
 
-@transaction.atomic
-def post(self, request, *args, **kwargs):
-     username = request.POST.get('username')
-     first_name = request.POST.get('first_name')
-     last_name = request.POST.get('last_name')
-     email = request.POST.get('email')
-     password = request.POST.get('password')
-     uczelnia = request.POST.get('uczelnia')
-     wydzial = request.POST.get('wydzial')
-     kierunek = request.POST.get('kierunek')
 
-     print(uczelnia, wydzial, kierunek)
-
-     user = User.objects.create_user(username, email,password)
-     user.last_name = last_name
-     user.first_name = first_name
-     user.profile.uczelnia = uczelnia
-     user.profile.wydzial = wydzial
-     user.profile.kierunek = kierunek
-     user.save()
-
-     return redirect('/login')
 
 
 def dictfetchall(cursor):
@@ -43,7 +22,28 @@ class NewUserView(TemplateView):
         context['title'] = 'new'
         return context
 	
+    @transaction.atomic
+    def post(self, request, *args, **kwargs):
+         username = request.POST.get('username')
+         first_name = request.POST.get('first_name')
+         last_name = request.POST.get('last_name')
+         email = request.POST.get('email')
+         password = request.POST.get('password')
+         uczelnia = request.POST.get('uczelnia')
+         wydzial = request.POST.get('wydzial')
+         kierunek = request.POST.get('kierunek')
 
+         print(uczelnia, wydzial, kierunek)
+
+         user = User.objects.create_user(username, email,password)
+         user.last_name = last_name
+         user.first_name = first_name
+         user.profile.uczelnia = uczelnia
+         user.profile.wydzial = wydzial
+         user.profile.kierunek = kierunek
+         user.save()
+
+         return redirect('/login')
 
 
    

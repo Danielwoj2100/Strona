@@ -81,12 +81,12 @@ span.psw {
 {% block content %}
 
   {% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
+    <p style = "color: red">Login bądź/i hasło są niepoprawne.</p>
   {% endif %}
 
   {% if next %}
     {% if user.is_authenticated %}
-      <p>Twoje konto nie ma dostępu do tej strony!.</p>
+      <p>Jesteś już zalogowany, ale możesz się zalogować na inne konto.</p>
     {% else %}
       <p>Zaloguj się aby zobaczyć tą stronę.</p>
     {% endif %}

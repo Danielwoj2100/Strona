@@ -7,4 +7,5 @@ from .models import *
 admin.site.register(Kategoria)
 admin.site.register(Kurs)
 admin.site.register(Film)
+admin.site.register(Profile)
 

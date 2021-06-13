@@ -31,8 +31,10 @@ class Profile(models.Model):
     uczelnia = models.TextField(max_length=50, blank=True)
     wydzial = models.CharField(max_length=30, blank=True)
     kierunek = models.CharField(max_length=30, blank=True)
-    data_urodzenia = models.DateField(null=True, blank=True)
-    def str(self):
+    class Meta:
+        managed = True
+        verbose_name_plural = "profile"
+    def __str__(self):
         return str(self.user.username)
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
