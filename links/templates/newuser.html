@@ -13,9 +13,6 @@
 <br>
 <br>
 <br>
-
-
-
 <div  class="panel-body">
     
       <form method="post"> {% csrf_token %}
@@ -61,11 +58,34 @@
         <div class="row">
             <div class="col-md-3"></div>
                 <div class="col-md-2"><label class="inline">Password:</label></div>
-                  <div class="col-md-3">  
-                    <input class="vTextField form-control required" type="password" id="pass" name="password" minlength="8" maxlength="254" required>           
+                  <div class="col-md-3">
+                    <input class="vTextField form-control required" type="password" id="pass" name="password" minlength="8" maxlength="254" required>
+                  </div>
+				  <div class="row">
+            <div class="col-md-3"></div>
+                <div class="col-md-2"><label class="inline">uczelnia:</label></div>
+                  <div class="col-md-3">
+                    <input class="vTextField form-control required" type="uczelnia" id="uczelnia" name="uczelnia" minlength="2" maxlength="30" required>
                   </div>
           </div>
           <br>
+          <div class="row">
+            <div class="col-md-3"></div>
+                <div class="col-md-2"><label class="inline">wydział:</label></div>
+                  <div class="col-md-3">
+                    <input class="vTextField form-control required" type="wydzial" id="wydzial" name="wydzial" minlength="2" maxlength="30" required>
+                  </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-md-3"></div>
+                <div class="col-md-2"><label class="inline">kierunek:</label></div>
+                  <div class="col-md-3">
+                    <input class="vTextField form-control required" type="kierunek" id="kierunek" name="kierunek" minlength="8" maxlength="254" required>
+                  </div>
+          </div>
+          </div>
+        <br>
         <div class="row">
           <div class="col-md-7"></div>
           <div class="col-md-3">

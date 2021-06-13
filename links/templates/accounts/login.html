@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Bordered form */
+table {
+  padding: 20px;
+
+}
+*{
+    font-family: 'Lato', sans-serif;
+  text-align: center;
+}
+p{
+  font-size:30px
+}
+/* Full-width inputs */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: darkcyan;
+  color: white;
+  padding: 14px 30px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+
+/* Add padding to containers */
+.content-section{
+  padding: 100px;
+
+}
+tbody{
+}
+/* The "Forgot password" text */
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+.child {
+  border: 8px solid darkcyan;
+  background-color: white;
+  margin: 0 auto;
+}
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
+}
+    </style>
+
+    <meta charset="UTF-8">
+    <title>Strona logowania</title>
+</head>
+<body style="background: linear-gradient(to right, #0f2027, #203a43, #2c5364);";>
+
+{% block content %}
+
+  {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>Twoje konto nie ma dostępu do tej strony!.</p>
+    {% else %}
+      <p>Zaloguj się aby zobaczyć tą stronę.</p>
+    {% endif %}
+  {% endif %}
+<a style="color: whitesmoke" href="/">Wróć do strony głównej</a>
+  <div class ="content-section">
+
+    <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <table class="child">
+      <p style="color: whitesmoke">Formularz logowania</p>
+      <tr>
+        <td>Nazwa użytkownika: </td>
+        <td >{{ form.username }}</td>
+      </tr>
+      <tr>
+        <td>Hasło: </td>
+        <td>{{ form.password }}</td>
+      </tr>
+      <tr>
+        <td colspan="2">
+            <button type="submit" value="login">Zaloguj się</button>
+            <input type="hidden" name="next" value="{{ next }}" />
+        </td></tr>
+      <tr>
+        <td><a style= "font-size:14px" href="{% url 'password_reset' %}">Zapomniałeś hasła?</a>
+        </td>
+        <td>
+          <a style= "font-size:14px" href="/new_user">Nie masz konta?</a>
+        </td>
+        <td>
+
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+    </table>
+
+  </form>
+  </div>
+  {# Assumes you setup the password_reset view in your URLconf #}
+
+
+{% endblock %}
+
+
+</body>
+</html>
