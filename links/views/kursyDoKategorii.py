@@ -19,6 +19,7 @@ class kursyDoKategoriiView(TemplateView):
         kursy = Kurs.objects.filter(kategoria=kategoria.id)
         context['title'] = 'kursy'
         context['kursy'] = kursy
-
+        context['kategoria'] = kat
         return context
+    
  

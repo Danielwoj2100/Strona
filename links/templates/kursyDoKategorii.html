@@ -2,7 +2,9 @@
 {% load static %}
 {% block title %}Home{% endblock %}
 {% block content %}
-
+{% block extra_css %}
+<link href="{% static 'css/kursyDoKategorii.css' %}" rel="stylesheet" media="screen">
+{% endblock %}
 <div role="main">
     <br>
     <br>
@@ -10,16 +12,14 @@
     <br>
     <br>
     <br>
-
+    
+    <h1 id="kategoria">{{kategoria}}:</h1>
+    
+    <br>
     {% for row in kursy %}
 
-    <div class="row borders">
-        <div class="col-md-5"></div>
-
-        <div class="col-md-2">
-            <a class="lista" href="/kursy/{{ row.kategoria }}/{{ row.nazwa }}">{{ row.nazwa }}</a>
-        </div>
-
+    <div>
+            <button class="listaKat btn" onclick="location.href='/kursy/{{ row.kategoria }}/{{ row.nazwa }}'" type="button">{{ row.nazwa }}</button>
     </div>
 
     {% endfor %}

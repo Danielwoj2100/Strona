@@ -1,7 +1,6 @@
 def categories(request):
     from links.models import Kategoria
-    categories = Kategoria.objects.all()
 
     return {
-        'categories': categories,  
+        'categories': Kategoria.objects.all(),  
     } 

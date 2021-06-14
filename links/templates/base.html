@@ -1,68 +1,57 @@
 <!DOCTYPE html>
 
+
 {% load static %}
+
 <html lang="en">
-    <head>
-     
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <!-- Document title -->
-        <title>Walrus Bay</title>
-        <!-- Stylesheets & Fonts -->
-        <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i%7CRajdhani:400,600,700"
-            rel="stylesheet">
-        <!-- Plugins Stylesheets -->
-        <link rel="stylesheet" href="{% static 'css/loader/loaders.css' %}">
-        <link rel="stylesheet" href="{% static 'css/font-awesome/font-awesome.css' %}">
-        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-        <link rel="stylesheet" href="{% static 'css/aos/aos.css' %}">
-        <link rel="stylesheet" href="{% static 'css/swiper/swiper.css' %}">
-        <link rel="stylesheet" href="{% static 'css/lightgallery.min.css' %}">
-        <!-- Template Stylesheet -->
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        <!-- Responsive Stylesheet -->
-        <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
-        <link rel="stylesheet" href="{% static 'css/kursy.css' %}">
-    </head>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Walrus Bay</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+
 <body>
-    <header class="position-fixed w-100">
-        <div class="container">
-            <nav class="navbar navbar-expand-md navbar-light">
-                <a class="navbar-brand" href="/"><img src="{% static 'images/nazwa.png' %}" alt="Walrus Bay"></a>
-                <div class="group d-flex align-items-center">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation"><span
-                            class="navbar-toggler-icon"></span></button>
+  <div class="header">
+    <a id="logo" href="/"><img src="{% static 'images/nazwa.png' %}" alt="Walrus Bay"></a>
+    <div class="dropdown">
+      <button class="dropbtn">Kategorie kursów</button>
+      <div class="dropdown-content">
+        {% for row in categories %}
 
-                </div>
+        <div class="row borders">
+          <div class="col-md-5"></div>
 
-                <a class="search-icon d-none d-md-block" href="#"><i class="fa fa-search"></i></a>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="/kursy/">kategorie kursów</a>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="#">zarejestruj się</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/accounts/login/?next=/">zaloguj się</a></li>
-                    </ul>
+          <div class="col-md-2">
+            <a class="lista" href="/kursy/{{ row}}">{{ row}}</a>
+          </div>
 
-                    <form class="bg-white search-form" method="get" id="searchform">
-                        <div class="input-group">
-                            <input class="field form-control" id="s" name="s" type="text" placeholder="Search">
-                            <span class="input-group-btn">
-                                <input class="submit btn btn-primary" id="searchsubmit" name="submit" type="submit"
-                                    value="Search">
-                            </span>
-                        </div>
-                    </form>
-                </div>
-            </nav>
         </div>
-    </header>  
 
-{% block content %}
-{% endblock %}
+        {% endfor %}
+      </div>
+    </div>
+
+    {% if user.is_authenticated %}
+    <div class="header-right">
+      <div id="hello"><b>Witaj,<br>{{user.username }}</b></div>
+      <a id="logout" href="/accounts/logout">Wyloguj się</a>
+    </div>
+
+    {% else %}
+    <div class="header-right">
+      <a class="menu" href="/login">Zaloguj się</a>
+    </div>
+    {% endif %}
+
+  </div>
+
+  {% block content %}
+  {% endblock %}
 </body>
+
 </html>

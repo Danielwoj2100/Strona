@@ -2,6 +2,9 @@
 {% load static %}
 {% block title %}Home{% endblock %}
 {% block content %}
+{% block extra_css %}
+<link href="{% static 'css/kurs.css' %}" rel="stylesheet" media="screen">
+{% endblock %}
 
 <div role="main">
     <br>
@@ -11,24 +14,28 @@
     <br>
     <br>
 
-
-    <table style="margin-left: 8%">
-    <tr ><td>
+	<h1 id="kurs">{{kurs}}:</h1>
+    <br>
+    <table id="tab">
+    <tr><td>
 
     {% for row in filmy %}
 
-<iframe  width="560" height="315" src="{{ row.hiperlacze }}" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="{{ row.hiperlacze }}" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </td><td>
-<h1>{{ row.tytul }}</h1>
+<h3 id="tytul">{{ row.tytul }}</h3>
+
 <div class="opis">
-<h7 style="color: whitesmoke">{{row.opis}}</h7>
+{{row.opis}}
+
 </div>
+
 </td></tr>
 <tr><td>
 
-
+<br>
     {% endfor %}
     
 
-</table></div>
+</div>
 {% endblock %}

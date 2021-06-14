@@ -2,31 +2,58 @@
 {% load static %}
 {% block title %}Home{% endblock %}
 {% block content %}
+{% block extra_css %}
+<link href="{% static 'css/home.css' %}" rel="stylesheet" media="screen">
+{% endblock %}
+<section class="content">
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-<section class="hero">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 offset-md-1 col-md-11">
-                <div class="swiper-container hero-slider">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide slide-content d-flex align-items-center">
-                             <div class="single-slide">
-                                <h1 data-aos="fade-center" data-aos-delay="300">kurs dnia
-                                </h1>
-                                <p data-aos="fade-right" data-aos-delay="600">programowanie 1
-                                </p>
-                                <a data-aos="fade-right" data-aos-delay="900" href="#" class="btn btn-primary">zobacz</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Add Control -->
-        <span class="arr-left"><i class="fa fa-angle-left"></i></span>
-        <span class="arr-right"><i class="fa fa-angle-right"></i></span>
-    </div>
-    <div class="texture"></div>
-    <div class="diag-bg"></div>
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+	<div class="text">Zanurz się w świat nauki<br>z naszymi kursami</div>
+	<div class="button"><a href="new_user">Załóż konto</a></div>
+</div>
+<!--
+<div class="mySlides fade">
+	<div class="text">Kurs dnia:<br>Pola i fale</div>
+	<div class="button"><a href="/kursy/Fizyka/Pola-i-fale">Sprawdź</a></div>
+</div>
+-->
+<div class="mySlides fade">
+	<div class="text">Kurs dnia:<br>{{kurs.nazwa}}</div>
+	<div class="button"><a href="kursy/{{kurs.kategoria}}/{{kurs.nazwa}}">Sprawdź</a></div>
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span>
+</div>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 5000); // Change image every 2 seconds
+}
+</script>
+
 </section>
 {% endblock %}

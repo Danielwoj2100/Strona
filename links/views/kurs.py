@@ -30,5 +30,6 @@ class kursView(TemplateView):
         
         context['title'] = 'kurs'
         context['filmy'] = filmy
+        context['kurs'] = kurs
 
         return context 
