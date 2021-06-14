@@ -11,17 +11,17 @@
     <br>
     <br>
 
-	<h1>
-    <table>
-    <tr><td>
+
+    <table style="margin-left: 8%">
+    <tr ><td>
 
     {% for row in filmy %}
 
-<iframe width="560" height="315" src="{{ row.hiperlacze }}" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe  width="560" height="315" src="{{ row.hiperlacze }}" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </td><td>
-<h7>{{ row.tytul }}</h3>
+<h1>{{ row.tytul }}</h1>
 <div class="opis">
-{{row.opis}}
+<h7 style="color: whitesmoke">{{row.opis}}</h7>
 </div>
 </td></tr>
 <tr><td>
@@ -30,5 +30,5 @@
     {% endfor %}
     
 
-</div>
+</table></div>
 {% endblock %}
