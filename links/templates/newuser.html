@@ -7,6 +7,9 @@
 
 
 {% block content %}
+{% block extra_css %}
+<link href="{% static 'css/new_user.css' %}" rel="stylesheet" media="screen">
+{% endblock %}
 <br>
 <br>
 <br>
@@ -21,7 +24,7 @@
       <form method="post"> {% csrf_token %}
         <div class="widget_type__textinput row">
           <div class="col-md-3"> </div>
-          <div class="col-md-2"> <label for="id_username">User name:</label></div>
+          <div class="col-md-2"> <label for="id_username">Nazwa użytkownika:</label></div>
           <div class="col-md-3"> 
             <input class="form-control" id="id_username" maxlength="30" name="username"  type="text" required>
           </div>
@@ -31,7 +34,7 @@
 
         <div class="row">
           <div class="col-md-3"></div>
-              <div class="col-md-2"><label for="id_first_name">First Name:</label></div>
+              <div class="col-md-2"><label for="id_first_name">Imię:</label></div>
                 <div class="col-md-3">  
                   <input class="vTextField form-control" id="id_first_name" maxlength="30" name="first_name" type="text" required>            
                 </div>
@@ -41,7 +44,7 @@
 
         <div class="row">
           <div class="col-md-3"></div>
-              <div class="col-md-2"><label class="inline" for="id_last_name">Last Name:</label></div>
+              <div class="col-md-2"><label class="inline" for="id_last_name">Nazwisko:</label></div>
                 <div class="col-md-3">  
                   <input class="vTextField form-control" id="id_last_name" maxlength="30" name="last_name"  type="text" required>            
                 </div>
@@ -61,7 +64,7 @@
         
         <div class="row">
             <div class="col-md-3"></div>
-                <div class="col-md-2"><label class="inline">Password:</label></div>
+                <div class="col-md-2"><label class="inline">Hasło:</label></div>
                   <div class="col-md-3">  
                     <input class="vTextField form-control required" type="password" id="pass" name="password" minlength="8" maxlength="254" required>           
                   </div>
@@ -71,7 +74,7 @@
         
           <div class="row">
           <div class="col-md-3"></div>
-              <div class="col-md-2"><label class="inline">uczelnia:</label></div>
+              <div class="col-md-2"><label class="inline">Uczelnia:</label></div>
                 <div class="col-md-3">
                   <input class="vTextField form-control required" type="uczelnia" id="uczelnia" name="uczelnia" minlength="2" maxlength="30" required>
                 </div>
@@ -81,7 +84,7 @@
         
         <div class="row">
           <div class="col-md-3"></div>
-              <div class="col-md-2"><label class="inline">wydział:</label></div>
+              <div class="col-md-2"><label class="inline">Wydział:</label></div>
                 <div class="col-md-3">
                   <input class="vTextField form-control required" type="wydzial" id="wydzial" name="wydzial" minlength="2" maxlength="30" required>
                 </div>
@@ -91,7 +94,7 @@
         
         <div class="row">
           <div class="col-md-3"></div>
-              <div class="col-md-2"><label class="inline">kierunek:</label></div>
+              <div class="col-md-2"><label class="inline">Kierunek:</label></div>
                 <div class="col-md-3">
                   <input class="vTextField form-control required" type="kierunek" id="kierunek" name="kierunek" minlength="8" maxlength="254" required>
                 </div>
@@ -103,7 +106,7 @@
           <div class="col-md-7"></div>
           <div class="col-md-3">
             <button type="submit"  class="btn my-btn center-block"  >
-            <span class="text">Create</span>
+            <span class="text">Stwórz</span>
             </button>
           </div>
         </div>

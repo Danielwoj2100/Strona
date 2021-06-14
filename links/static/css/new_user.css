@@ -1,0 +1,42 @@
+.row {
+    text-align: center;
+    color: white;
+    font-size: 18px;
+}
+
+      /* Full-width inputs */
+      input[type=text], input[type=password] {
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+      
+      /* Set a style for all buttons */
+      .btn {
+        background-color: #5072AD;
+        color: black;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        font-size: 18px;
+      }
+      
+      /* Add a hover effect for buttons */
+      .btn:hover {
+        opacity: 0.8;
+      }
+      
+      
+      
+
+    
+      /* Change styles for span and cancel button on extra small screens */
+      @media screen and (max-width: 300px) {
+        span.psw {
+          display: block;
+          float: none;
+        }
+    
+      }
